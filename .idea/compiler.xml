@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ventas" />
+        <module name="movimientos" />
+        <module name="clientes" />
+        <module name="productos" />
+        <module name="envios" />
+      </profile>
+      <profile name="Annotation profile for valoraciones" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+        </processorPath>
+        <module name="pagos" />
+        <module name="reclamos" />
+        <module name="valoraciones" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="clientes" options="-parameters" />
+      <module name="envios" options="-parameters" />
+      <module name="movimientos" options="-parameters" />
+      <module name="pagos" options="-parameters" />
+      <module name="productos" options="-parameters" />
+      <module name="reclamos" options="-parameters" />
+      <module name="valoraciones" options="-parameters" />
+      <module name="ventas" options="-parameters" />
+    </option>
+  </component>
+</project>

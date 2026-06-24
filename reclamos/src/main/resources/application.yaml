@@ -1,0 +1,28 @@
+# CONFIGURACIÓN GENERAL
+server:
+  port: 8087
+
+spring:
+  application:
+    name: reclamos
+  profiles:
+    active: dev # Le decimos a Spring que arranque en modo "desarrollo"
+
+---
+# PERFIL DE DESARROLLO (dev)
+spring:
+  config:
+    activate:
+      on-profile: dev
+  
+  # Conexión a tu base de datos Laragon
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_reclamos?createDatabaseIfNotExist=true
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
