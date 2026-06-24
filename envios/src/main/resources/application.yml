@@ -1,4 +1,4 @@
-# CONFIGURACIÓN GENERAL
+# CONFIGURACION GENERAL
 server:
   port: 8084
 
@@ -6,7 +6,12 @@ spring:
   application:
     name: envios
   profiles:
-    active: dev # Le decimos a Spring que arranque en modo "desarrollo"
+    active: dev
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
 
 ---
 # PERFIL DE DESARROLLO (dev)
@@ -15,11 +20,10 @@ spring:
     activate:
       on-profile: dev
 
-  # Conexión a tu base de datos Laragon
+  # Conexion a tu base de datos Laragon (Sin tilde)
   datasource:
     url: jdbc:mysql://localhost:3306/db_envios?createDatabaseIfNotExist=true
     username: root
-    password:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:

@@ -13,7 +13,6 @@
     <artifactId>envios</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>microservicio-envios</name>
-    <description>Microservicio para la gestion de envios</description>
 
     <properties>
         <java.version>21</java.version>
@@ -46,6 +45,11 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
         <dependency>
