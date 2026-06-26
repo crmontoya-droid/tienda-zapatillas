@@ -24,23 +24,23 @@ public class EnvioController {
 
     @GetMapping
     public ResponseEntity<ApiResponse<List<EnvioDTO>>> listar(HttpServletRequest request) {
-        log.info("Petición REST: Listar todos los envíos");
+        log.info("Petición REST: Listar todos los envios");
         List<EnvioDTO> lista = envioService.listarTodos();
         return ResponseEntity.ok(buildResponse(HttpStatus.OK, "Lista de envíos obtenida", request, lista));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<EnvioDTO>> obtenerPorId(@PathVariable Long id, HttpServletRequest request) {
-        log.info("Petición REST: Obtener envío ID {}", id);
+        log.info("Petición REST: Obtener envio ID {}", id);
         EnvioDTO envio = envioService.buscarPorId(id);
-        return ResponseEntity.ok(buildResponse(HttpStatus.OK, "Envío encontrado", request, envio));
+        return ResponseEntity.ok(buildResponse(HttpStatus.OK, "Envio encontrado", request, envio));
     }
 
     @PostMapping
     public ResponseEntity<ApiResponse<EnvioDTO>> crear(@Valid @RequestBody EnvioDTO dto, HttpServletRequest request) {
         log.info("Petición REST: Programar nuevo envío");
         EnvioDTO nuevo = envioService.programarEnvio(dto);
-        return new ResponseEntity<>(buildResponse(HttpStatus.CREATED, "Envío programado exitosamente", request, nuevo), HttpStatus.CREATED);
+        return new ResponseEntity<>(buildResponse(HttpStatus.CREATED, "Envio programado exitosamente", request, nuevo), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
