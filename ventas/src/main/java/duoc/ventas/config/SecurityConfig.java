@@ -1,4 +1,4 @@
-package duoc.clientes.config;
+package duoc.ventas.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,10 +15,10 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        // 1. Tus rutas de negocio
-                        .requestMatchers("/api/clientes/**").permitAll()
+                        // 1. Las rutas de negocio de VENTAS
+                        .requestMatchers("/api/ventas/**").permitAll()
 
-                        // 2. Lista completa y absoluta de rutas de Swagger
+                        // 2. Rutas blindadas de Swagger
                         .requestMatchers(
                                 "/v3/api-docs",
                                 "/v3/api-docs/**",

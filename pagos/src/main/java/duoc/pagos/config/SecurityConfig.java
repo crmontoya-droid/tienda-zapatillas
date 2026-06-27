@@ -15,7 +15,23 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/pagos/**").permitAll() // <-- Ajustado para pagos
+                        // 1. Las rutas de negocio de PAGOS
+                        .requestMatchers("/api/pagos/**").permitAll()
+
+                        // 2. Rutas blindadas de Swagger
+                        .requestMatchers(
+                                "/v3/api-docs",
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/swagger-resources",
+                                "/swagger-resources/**",
+                                "/configuration/ui",
+                                "/configuration/security",
+                                "/webjars/**"
+                        ).permitAll()
+
+                        // 3. Todo lo demás bloqueado
                         .anyRequest().authenticated()
                 );
         return http.build();
